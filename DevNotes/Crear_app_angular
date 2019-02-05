@@ -1,0 +1,20 @@
+para este proyecto se usara angular framework que permite realizar aplicaciones SPA de manera 
+facil y esta orientado a aplicaciones grandes o ricas usando typescript como lenguaje base
+
+verificar que se encuentre instalado node, npm y angular cli
+npm install -g @angular/cli
+
+verificar que sea una version estable en la cual se puedan usar las librerias necesarias lo mejor
+es instalar una version anterior a la ultima
+para este proyecto se usara la version 7.2.3
+npm install -g @angular/cli@7.2.3
+
+Crear proyecto
+ng new my-app
+
+Probar ejecucion 
+ng serve --open  para abrir de una vez en el navegador 
+ng serve
+ng serve --watch para que quede verificando cambios
+
+
