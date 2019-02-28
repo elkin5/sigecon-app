@@ -1,0 +1,35 @@
+
+@font-face {
+    font-family: "Montserrat";
+    src: local(Montserrat Thin),
+        url("#{$montserrat-font-path}Montserrat-Thin.ttf") format("ttf");
+
+    font-weight: 100;
+}
+@font-face {
+    font-family: "Montserrat";
+    src: local(Roboto Light),
+        url("#{$montserrat-font-path}Montserrat-Light.ttf") format("ttf");
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: local(Roboto Regular), 
+        url("#{$montserrat-font-path}Montserrat-Regular.ttf") format("ttf");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: local(Roboto Medium),
+        url("#{$montserrat-font-path}Montserrat-Medium.ttf") format("ttf");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: local(Roboto Bold),
+        url("#{$montserrat-font-path}Montserrat-Bold.ttf") format("ttf");
+    font-weight: 700;
+}

@@ -18,11 +18,12 @@ funcione libreria angular2-materialize para este caso es la 0.100.2
 
 para que se realize la correcta integracion se debe agregar al archivo angular.json
 en los estilos y los scripts lo siguiente:
-
+,
+              "./node_modules/materialize-css/dist/css/materialize.css"
 "../node_modules/materialize-css/dist/css/materialize.css"
 "styles": [
               "node_modules/materialize-css/dist/css/materialize.css",
-              "src/stiles.css"
+              "src/stiles.css"  
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.js",
@@ -41,6 +42,11 @@ import { MaterializeModule } from 'angular2-materialize';
 
 En la aplicacion en la principal tendra el signin y el signup si no se encuentra conexion
 si se encuentra conexion entonces va al timeline principal
+
+para lograr modificar los elementos del css se importan al .sass principal 
+donde se pueden realizar las respectivas modificaciones como el color principal
+y la fuente.
+
 
 
 

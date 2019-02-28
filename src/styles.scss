@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+@import '../node_modules/materialize-css/sass/components/color';
+
+$roboto-font-path: "../node_modules/materialize-css/dist/fonts/roboto/" !default; 
+$primary-color: color("teal", "base");
+
+@import '../node_modules/materialize-css/sass/materialize.scss';
+
+$montserrat-font-path: "./fonts/Montserrat/" !default;
+
+@import './fonts/montserrat.scss';
+
+body{
+    background: #fafafa;
+    font-family: 'Montserrat';
+}
