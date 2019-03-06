@@ -1,31 +1,103 @@
-<!--The content below is only a placeholder and can be replaced.-->
-
-<form materialize class="col s12">
-  <div class="row">
-    <div class="input-field col s6">
-      <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-      <label for="first_name">First Name</label>
-    </div>
+<div class="navbar-fixed">
+  <!-- Dropdown Structure -->
+  <h1 translate>Title</h1>
+  <div>
+    {{ 'Intro' | translate:user }}
   </div>
-</form>
+  <button (click)="switchLanguage('en')">en</button>
+  
+  <button (click)="switchLanguage('es')">es</button>
+  <ul id="dropdown1" class="dropdown-content">
+    <li><a href="#!">one</a></li>
+    <li><a href="#!">two</a></li>
+    <li class="divider"></li>
+    <li><a href="#!">three</a></li>
+  </ul>
 
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+  <nav>
+    <div class="nav-wrapper left">
+      <form>
+        <div class="input-field">
+          <input id="search" type="search" required>
+          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+          <i class="material-icons">close</i>
+        </div>
+      </form>
+    </div>
+    <a href="#" class="brand-logo center">Sigecon-App</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="#"><i class="large material-icons">help</i></a></li>
+      <li><a href="#"><i class="large material-icons">favorite</i></a></li>
+      <!-- Dropdown Trigger -->
+      <li><a class="dropdown-button" href="#!" data-activates="dropdown1">User<i
+            class="material-icons right">add_a_photo</i></a></li>
+    </ul>      
+  </nav>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
+
+<!-- Dropdown Structure -->
+<ul id="dropdown2" class="dropdown-content">
+  <li><a href="#!">one</a></li>
+  <li><a href="#!">two</a></li>
+  <li class="divider"></li>
+  <li><a href="#!">three</a></li>
 </ul>
 
-<router-outlet></router-outlet>
+<nav class="nav-extended">
+  <div class="nav-wrapper">
+    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <!-- Dropdown Trigger -->
+      <li><a class="dropdown-button" href="#!" data-activates="dropdown2">Add<i
+            class="material-icons right">add</i></a></li>
+    </ul>    
+  </div>
+  <div class="nav-content">
+    <ul class="tabs tabs-transparent">
+      <li class="tab"><a class="active" href="#test1">Todo</a></li>
+      <li class="tab"><a href="#test2">Notas</a></li>
+      <li class="tab"><a href="#test3">Errores</a></li>
+      <li class="tab"><a href="#test4">Acciones</a></li>
+      <li class="tab"><a href="#test5">Preguntas</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+   <a>
+    <div id="test1" class="col s12">
+      <app-signin></app-signin>
+    </div>
+    <div id="test2" class="col s12">Notas</div>
+    <div id="test3" class="col s12">Errores</div>
+    <div id="test4" class="col s12">Acciones</div>
+    <div id="test5" class="col s12">Preguntas</div>
+   </a>
+</div>
+
+<footer class="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">Sigecon</h5>
+        <p class="grey-text text-lighten-4">
+          helping with your knowledge!!!
+        </p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">Links</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="#!">Contact</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Help</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">More kinsoft</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      © 2019 Sigecon-App
+      <a class="grey-text text-lighten-4 right" href="#!">kinsoft</a>
+    </div>
+  </div>
+</footer>

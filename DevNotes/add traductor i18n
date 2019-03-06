@@ -1,0 +1,107 @@
+se usa la libreria
+npm install @ngx-translate/core --save
+npm install @ngx-translate/http-loader
+
+Se realiza el import en el modulo(app.module.ts)
+
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+Crear un metodo que permite cargar traducciones usando http y .json
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
+
+Se necesita importar el modulo al @ng-modulo
+este import no es el mismo import del de modulos
+es un import especificamente para trabajar en angular
+equivale quiza a un load o submodulos
+,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
+
+Ahora en el componente(app.component.ts) se realiza la injeccion del servicio con el import:
+import { TranslateService } from '@ngx-translate/core';
+
+Posteriormente en la clase exportada se realiza el setteo del valor por defecto para el idioma
+y el metodo que realiza la seleccion del idioma
+
+crear archivos .json de los idiomas
+src/assets/i18n/en.json
+
+{
+    "Title": "Translation example",
+    "Intro": "Hello I am Arthur, I am 42 years old."
+}
+
+para realizar la traduccion basta con la palabra traduction en el tag
+<h1 translate>Title</h1>
+
+para usar un pipetranslation donde se puede pasar un objeto a nuestro traductor 
+se usa 
+<div>
+  {{ 'Intro' | translate:user }}
+</div>
+
+donde user es un objeto que puede ser tomado en el .json e insertado en el 
+token a traducir
+
+Para la creacion de los botones que setean lel idioma se puede usar
+<button (click)="switchLanguage('en')">en</button>
+
+<button (click)="switchLanguage('es')">es</button>
+
+Se puede crear un objeto que va a ir al .json del idioma y tendra
+dos valores de los cuales depende la traduccion
+user = {
+    name: 'Arthur',
+    age: 42
+  };
+
+para esto se debe mmodificar el .json asi 
+{
+    "Title": "Translation example",
+    "Intro": "Hello I am {{name}}, I am {{age}} years old."
+}
+
+mas informacion https://github.com/ngx-translate/core#3-define-the-translations
+
+Using nested .json objects
+si se desea tener mas ordenados los datos en el traductor se puede usar categorias 
+en el json de la siguinte manera:
+
+{
+    "Title": "Translation example",
+    "Intro": "Hello I am {{name}}, I am {{age}} years old.",
+    "Startpage": {
+        "TranslationSections": "Hello World"
+    },
+     "Aboutpage": {
+        "TranslationSections": "We are letsboot"
+    }
+}
+
+y asi se usa 
+
+<h1 translate>Title</h1>
+
+<div>
+  {{ 'Intro' | translate:user }}
+</div>
+
+<div>
+  {{ 'Startpage.TranslationSections' | translate }}
+</div>
+
+<div>
+  {{ 'Aboutpage.TranslationSections' | translate }}
+</div>
+
+guia tomada https://medium.com/letsboot/translate-angular-4-apps-with-ngx-translate-83302fb6c10d
