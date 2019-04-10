@@ -1,12 +1,5 @@
 <div class="navbar-fixed">
   <!-- Dropdown Structure -->
-  <h1 translate>Title</h1>
-  <div>
-    {{ 'Intro' | translate:user }}
-  </div>
-  <button (click)="switchLanguage('en')">en</button>
-  
-  <button (click)="switchLanguage('es')">es</button>
   <ul id="dropdown1" class="dropdown-content">
     <li><a href="#!">one</a></li>
     <li><a href="#!">two</a></li>
@@ -31,7 +24,7 @@
       <!-- Dropdown Trigger -->
       <li><a class="dropdown-button" href="#!" data-activates="dropdown1">User<i
             class="material-icons right">add_a_photo</i></a></li>
-    </ul>      
+    </ul>
   </nav>
 </div>
 
@@ -48,31 +41,39 @@
     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <!-- Dropdown Trigger -->
-      <li><a class="dropdown-button" href="#!" data-activates="dropdown2">Add<i
-            class="material-icons right">add</i></a></li>
-    </ul>    
+      <li><a class="dropdown-button" href="#!" data-activates="dropdown2">Add<i class="material-icons right">add</i></a>
+      </li>
+    </ul>
   </div>
   <div class="nav-content">
     <ul class="tabs tabs-transparent">
-      <li class="tab"><a class="active" href="#test1">Todo</a></li>
-      <li class="tab"><a href="#test2">Notas</a></li>
-      <li class="tab"><a href="#test3">Errores</a></li>
-      <li class="tab"><a href="#test4">Acciones</a></li>
-      <li class="tab"><a href="#test5">Preguntas</a></li>
+      <!-- <li class="tab"><a class="active" href="#signup">Registrarse</a></li>
+      <li class="tab"><a href="#signin">Ingresar</a></li> -->
+      <li class="tab"><a href="#all">Todo</a></li>
+      <li class="tab"><a href="#notes">Notas</a></li>
+      <li class="tab"><a href="#errors">Errores</a></li>
+      <li class="tab"><a href="#process">Acciones</a></li>
+      <li class="tab"><a href="#questions">Preguntas</a></li>
     </ul>
   </div>
 </nav>
 
 <div class="container">
-   <a>
-    <div id="test1" class="col s12">
-      <app-signin></app-signin>
+  <router-outlet></router-outlet>
+  
+  <a>
+    <!-- <div id="signup">
+      <app-signup></app-signup>
     </div>
-    <div id="test2" class="col s12">Notas</div>
-    <div id="test3" class="col s12">Errores</div>
-    <div id="test4" class="col s12">Acciones</div>
-    <div id="test5" class="col s12">Preguntas</div>
-   </a>
+    <div id="signin">
+      <app-signin></app-signin>
+    </div> -->
+    <div id="all">Todo</div>
+    <div id="notes">Notas</div>
+    <div id="errors">Errores</div>
+    <div id="process">Procesos</div>
+    <div id="questions">Preguntas</div>
+  </a>
 </div>
 
 <footer class="page-footer">
@@ -83,6 +84,9 @@
         <p class="grey-text text-lighten-4">
           helping with your knowledge!!!
         </p>
+        <button class="white-text waves-effect btn-flat waves-light btn" (click)="switchLanguage('en')">en</button>
+
+        <button class="waves-effect white-text btn-flat waves-light btn" (click)="switchLanguage('es')">es</button>
       </div>
       <div class="col l4 offset-l2 s12">
         <h5 class="white-text">Links</h5>

@@ -11,7 +11,7 @@ export class AppComponent {
 
   title = 'sigecon-app';
 
-  //Se agrega la variable a injectar
+  //Se agrega la variable a injectar para la traduccion
   constructor(private translate: TranslateService) {
     //Se define el valor por defecto para 
     translate.setDefaultLang('es');

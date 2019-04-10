@@ -1,0 +1,21 @@
+.box {
+  background-color: white;
+  border: 1px solid #edeeee;
+  border-radius: 3px;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.sign-form {
+  width: 60%;
+  margin: 0 auto;
+
+  .btn.btn-fb {
+    background-color: #4090db;
+    font-size: 0.9em;
+  }
+
+  .btn.btn-fb:hover {
+    background-color: #2d6599;
+  }
+}
