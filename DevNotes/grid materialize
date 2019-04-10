@@ -1,0 +1,32 @@
+las grillas de materialize estan divididas en 12 columnas 
+las cuales pueden ser:
+s small
+m medium
+l large
+lo cual significa que tipo de pantalla se esta viendo
+s : pantallas pequenas como smarphones
+m : pantallas mediana como tablets
+l : pantallas normales de escritorio
+
+s1 significa que si es una pantalla pequena solo use
+
+<div class="row">
+  <div class="col s12 m6 l3 grey">
+    <p>s12 m6 l3</p>
+  </div>
+  <div class="col s12 m6 l3 green">
+    <p>s12 m6 l3</p>
+  </div>
+  <div class="col s12 m6 l3 cyan">
+    <p>s12 m6 l3</p>
+  </div>
+  <div class="col s12 m6 l3 pink">
+    <p>s12 m6 l3</p>
+  </div>
+</div>
+
+con este ejemplo podemos ver que si esta grande la pantalla entonces 
+la grilla de 12 se divide en 4 partes de 3 
+si es una pantalla tipo tablet entonces se divide en 4 de 6 ocupando 2 
+grillas 
+y si la pantalla es pequena entonces cada columna ocupara la grilla
