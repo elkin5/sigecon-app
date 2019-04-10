@@ -1,0 +1,65 @@
+
+<div style="text-align:center">
+  <h1>
+    Uso avanzado de plantillas en Angular
+  </h1>
+
+  <h2>Ejemplo básico de uso de plantillas</h2>
+
+  <ng-container *ngIf="noticias else cargando">
+    <div *ngFor="let noticia of noticias">
+      {{noticia}}
+    </div>
+  </ng-container>
+
+  <ng-template #cargando>Cargando...</ng-template>
+
+  <h2>El contexto de las plantillas</h2>
+
+  <ng-template #itemTemplate let-item="item" let-index="index">{{index + 1}}. {{item}}</ng-template>
+
+  <div *ngFor="let noticia of noticias; let i = index">
+    <ng-container *ngTemplateOutlet="itemTemplate; context: {item: noticia, index: i}"></ng-container>
+  </div>
+
+  <h2>Componentes configurables con ng-template</h2>
+
+  <ng-template #itemTemplateConf let-item="item">
+    - <i>{{ item }}</i>
+  </ng-template>
+
+  <app-mi-lista [items]="noticias" [itemTemplate]="itemTemplateConf"></app-mi-lista>
+</div>
+
+Para el ultimo ejemplo se usa
+<ng-template #templateDefault let-item="item">
+  {{ item }}
+</ng-template>
+
+<div class="mi-lista">
+  <div *ngFor="let item of items">
+    <ng-container *ngTemplateOutlet="itemTemplate ? itemTemplate : templateDefault; context: {item: item}">
+    </ng-container>
+  </div>
+</div>
+
+en el app.component.ts
+implements OnInit{
+
+  noticias;
+
+  constructor() { }
+
+  ngOnInit() {
+    setTimeout(() => {
+      this.noticias = [
+        'Noticia 1',
+        'Noticia 2',
+        'Noticia 3'
+      ]
+    }, 2000);
+  }
+
+  en el componet lista.ts
+  @Input('items') items: Array<any>;
+  @Input('itemTemplate') itemTemplate: TemplateRef<any>;
