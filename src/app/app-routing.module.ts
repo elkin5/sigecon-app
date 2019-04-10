@@ -1,10 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-const routes: Routes = [];
+// Imports para las rutas
+import { SigninComponent } from './components/signin/signin.component';
+import { SignupComponent } from './components/signup/signup.component';
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
+
+const routes: Routes = [
+  { path: 'signin', component: SigninComponent },
+  { path: 'signup', component: SignupComponent},
+  { path: '**', pathMatch: 'full', redirectTo: 'signup'}
+];
+
+export const appRouting = RouterModule.forRoot(routes, {useHash: true});

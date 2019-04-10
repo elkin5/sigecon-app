@@ -1,0 +1,38 @@
+Se crea un modulo independiente para las rutas
+ng generate module app-routing --flat --module=app
+
+si has elegido la opcion al crear el proyecto no es necesario crearlo
+
+archivo app-routing
+Se importa los modulos que se anexaran a la s rutas
+import { SigninComponent } from './signin/signin.component';
+import { SignupComponent } from './signup/signup.component';
+
+Se crean las rutas
+
+const routes: Routes = [
+  { path: 'signin', component: SigninComponent },
+  { path: 'signup', component: SignupComponent},
+  { path: '**', pathMatch: 'full', redirectTo: 'signup'}
+];
+
+la tercera ruta sirve para decirle a donde vaya si no existe 
+una ruta a la que se desea acceder
+
+se exporta una constante de RouterModule
+export const appRouting = RouterModule.forRoot(routes);
+
+archivo app-module
+
+Se importa el routing
+import { appRouting } from './app-routing.module';
+
+Se anexa a angular
+imports [
+  appRouting
+]
+
+
+Para lograr el efecto de una single page aplication 
+agrego a la const useHash: true
+y se agrega al llamado /#/
