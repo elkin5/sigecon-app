@@ -1,0 +1,21 @@
+Para el manejo de formularios creo una variable de formulario que me 
+provee angular y a esta la envio a una funcion
+mediante la funcion podemos obtener los datos del formulario y resetearl si es requerido
+
+<form class="sign-form" #frmSignup="ngForm" (ngSubmit)="addUser(frmSignup)">
+
+para que lea el componente ngForm del formulario angular trae ya un componente 
+que permite esto para eso requiero ir al app.module.ts lo importamos y lo agrgamos a los require de angular
+
+import { FormsModule } from '@angular/forms';
+
+
+mediante el #id=(ngModel) puedo obtenerlo desde el typescript
+
+para que funcione la lectura de datos desde el html hacia el typescript es necesario importar HttpClientModule
+
+El modelo debe tener un constructor que permita crear un new 
+
+El servivio debe tenr una instancia del objeto 
+
+El componente debe tener un import del servicio y con el nombre de este se llama desde el html

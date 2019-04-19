@@ -17,6 +17,10 @@ import { SignupComponent } from './components/signup/signup.component';
 // imports para rutas (navegacion entre paginas)
 import { appRouting } from './app-routing.module';
 
+//imports para crear forularios
+import { FormsModule } from '@angular/forms';
+// el import del HttpClientModule tambien es necesario para conectar modelo con html
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -29,6 +33,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     SignupComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     MaterializeModule,
     HttpClientModule,

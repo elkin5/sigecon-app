@@ -1,0 +1,10 @@
+Los servicios me permiten definir metodos que pueden ser reutilizados en cualquier parte 
+del codigo(funcionan como inyeccion de dependencias de java)
+
+para acceder a los datos del servidor debo crearlos esto lo hago mediante la clase de nuestro 
+servicio angular
+
+para instanciar un parametro de una libreria dentro de un servicio se debe
+agregar al constructor de esta manera tenderemos disponible la propiedad para 
+manipularla dentro de la clase 
+

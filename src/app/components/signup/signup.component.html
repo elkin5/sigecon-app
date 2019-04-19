@@ -7,7 +7,7 @@
   <div class="col s12 m7 l7">
     <div class="box">
       <h4>Registrate</h4>
-      <form class="sign-form">
+      <form class="sign-form" #frmSignup="ngForm" (ngSubmit)="addUser(frmSignup)">
         <a href="/#/signin">Ya tengo una cuenta</a>
         <div class="section">
           <a class="btn btn-fb hide-on-med-and-down">
@@ -19,10 +19,11 @@
         </div>
         <div class="divider"></div>
         <div class="section">
-          <input type="email" name="email" placeholder="Email">
-          <input type="text" name="name" placeholder="Nombre">
-          <input type="text" name="username" placeholder="Usuario">
-          <input type="password" name="password" placeholder="Contrasena">
+          <input type="email" name="email" placeholder="Email" #email="ngModel" [(ngModel)]="userService.selectedUser.email">
+          <input type="text" name="fullname" placeholder="Nombre Completo" #fullname="ngModel" [(ngModel)]="userService.selectedUser.fullname">
+          <input type="text" name="username" placeholder="Usuario" #username="ngModel" [(ngModel)]="userService.selectedUser.username">
+          <input type="password" name="password" placeholder="Contrasena" #password="ngModel" [(ngModel)]="userService.selectedUser.password">
+          <input type="password" name="confirm" placeholder="Confirmar Contrasena">
           <button class="btn waves-effect waves-ligth" type="submit">Registrar</button>
         </div>
       </form>
