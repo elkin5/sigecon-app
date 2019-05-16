@@ -1,4 +1,4 @@
-Si no reconoce los modulos que comienzaan con @ 
+Si no reconoce los modulos que comienzan con @ 
 Se cambia en el tsconfig.json
 "baseUrl": "src"
 

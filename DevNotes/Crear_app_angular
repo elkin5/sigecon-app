@@ -17,4 +17,51 @@ ng serve --open  para abrir de una vez en el navegador
 ng serve
 ng serve --watch para que quede verificando cambios
 
+<div class="col s12 m7">
+  <div class="row">
+    <div class="signup-box">
+      <h1 class="sigecon">Sigecon</h1>
+      <form class="signup-form">
+        <div class="section">
+          <a class="btn btn-fb hide-on-small-only"> login fb</a>
+          <a class="btn btn-fb hide-on-med-and-up"><i class="fab fa-facebook"></i>
+            login fb</a>
+        </div>
+        <div class="divider"></div>
+        <div class="section">
+          <input type="text" name="username" placeholder="${translate.message('username')}">
+          <input type="password" name="password" placeholder="${translate.message('password')}">
+          <button class="btn waves-effect waves-ligth btn-signup" type="submit">Sign In</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="login-box">
+      No tiene cuenta
+      <a href="/signup">Sign Up</a>
+    </div>
+  </div>
+</div>
+
+eliminar componente en angular
+
+Delete the folder containing this component.
+In the app.module.ts remove the import statement for this component and remove its name from the declaration section of @NgModule
+Remove the line with the export statement for this component from index.ts.
+
+export class User {
+  constructor(
+    public id: number,
+    public name: string,
+    public lastname: string,
+    public identification: number,
+    public username: string,
+    public password: string,
+    public fechaNto: Date
+  ) {}
+}
+
+
+
 

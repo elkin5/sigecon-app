@@ -1,0 +1,4 @@
+  los modelos en el servicio solo sirven para darle un esquema a la forma de los datos
+
+  para este proyecto y por usar mongo se debe tener en cuenta el _id que pone mongo
+  por defecto

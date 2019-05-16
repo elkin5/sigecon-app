@@ -19,3 +19,9 @@ El modelo debe tener un constructor que permita crear un new
 El servivio debe tenr una instancia del objeto 
 
 El componente debe tener un import del servicio y con el nombre de este se llama desde el html
+
+-- Para el envio de la peticion
+Puedo crear eventos de angular con la propiedad (evento)="funcionEnComponente(form)"
+
+las funciones se crean directamente en el componente
+
