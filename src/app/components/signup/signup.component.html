@@ -1,61 +1,58 @@
-<div class="row"></div>
-<div class="row">
-  <div class="col m5 l5 hide-on-small-only">
-    <img class="responsive-img" src="../../assets/img/error.png" alt="image">
-  </div>
-
-  <div class="col s12 m7 l7">
-    <div class="box">
-      <h4>Registrate</h4>
-      <form class="sign-form" #frmSignup="ngForm" >
-        <a href="/#/signin">Ya tengo una cuenta</a>
-        <div class="section">
-          <a class="btn btn-fb hide-on-med-and-down">
-            <i class="fab fa-facebook"></i> Registrarse con Facebook
-          </a>
-          <a class="btn btn-fb hide-on-large-only">
-            <i class="fab fa-facebook"></i>
-          </a>
-        </div>
-        <div class="divider"></div>
-        <div class="section">
-          <div class="input-field">
-            <input type="email" id="email" name="email" #email="ngModel" class="validate"
-              [(ngModel)]="userService.selectedUser.email" required="" aria-required="true">
-            <label for="email" data-error="No es un correo electronico" data-success="">Email *</label>
+<div class="container">
+  <div class="row"></div>
+  <div class="row">
+    <div class="col s12 m12 l12">
+      <div class="box">
+        <h4>Registrate</h4>
+        <form class="sign-form" #frmSignup="ngForm">
+          <a href="/#/login">Ya tengo una cuenta</a>
+          <div class="section">
+            <a class="btn btn-fb hide-on-med-and-down">
+              <i class="fab fa-facebook"></i> Registrarse con Facebook
+            </a>
+            <a class="btn btn-fb hide-on-large-only">
+              <i class="fab fa-facebook"></i>
+            </a>
           </div>
+          <div class="divider"></div>
+          <div class="section">
+            <div class="input-field">
+              <input type="email" id="email" name="email" #email="ngModel" class="validate"
+                [(ngModel)]="userService.selectedUser.email" required="">
+              <label for="email" data-error="No es un correo electronico" data-success="">Email *</label>
+            </div>
 
-          <div class="input-field">
-            <input type="text" id="fullname" name="fullname" #fullname="ngModel"
-              [(ngModel)]="userService.selectedUser.fullname" class="validate" required="" aria-required="true">
-            <label for="fullname" data-error="Ingrese un valor" data-success="">Nombre Completo *</label>
-          </div>
+            <div class="input-field">
+              <input type="text" id="fullname" name="fullname" #fullname="ngModel"
+                [(ngModel)]="userService.selectedUser.fullname" class="validate" required="">
+              <label for="fullname" data-error="Ingrese un valor" data-success="">Nombre Completo *</label>
+            </div>
 
-          <div class="input-field">
-            <input type="text" id="username" name="username" #username="ngModel"
-              [(ngModel)]="userService.selectedUser.username" class="validate" required="" aria-required="true">
-            <label for="fullname" data-error="Ingrese un valor" data-success="">Usuario *</label>
-          </div>
+            <div class="input-field">
+              <input type="text" id="username" name="username" #username="ngModel"
+                [(ngModel)]="userService.selectedUser.username" class="validate" required="">
+              <label for="username" data-error="Ingrese un valor" data-success="">Usuario *</label>
+            </div>
 
-          <div class="input-field">
-            <input type="password" id="password" name="password" #password="ngModel"
-              [(ngModel)]="userService.selectedUser.password" class="validate" required="" aria-required="true">
-            <label for="fullname" data-error="Ingrese un valor" data-success="">Contrasena *</label>
-          </div>
+            <div class="input-field">
+              <input type="password" id="password" name="password" #password="ngModel"
+                [(ngModel)]="userService.selectedUser.password" class="validate" required="">
+              <label for="password" data-error="Ingrese un valor" data-success="">Contrasena *</label>
+            </div>
 
-          <div class="input-field">
-            <input type="password" id="confirm" name="confirm" class="validate" [(ngModel)]="valPassword"
-            required="" aria-required="true">
-            <label for="fullname" data-error="Ingrese un valor" data-success="">Verificar contrasena</label>
-          </div>
+            <div class="input-field">
+              <input type="password" id="confirm" name="confirm" class="validate" [(ngModel)]="valPassword" required="">
+              <label for="confirm" data-error="Ingrese un valor" data-success="">Verificar contrasena</label>
+            </div>
 
-          <div class="input-field">
-            <button class="btn waves-effect waves-ligth" style="margin-right: 3%"
-              (click)="resetForm(frmSignup)">Limpiar</button>
-            <button class="btn waves-effect waves-light" (click)="addUser(frmSignup)">Registrar</button>
+            <div class="input-field">
+              <button class="btn waves-effect waves-ligth" style="margin-right: 3%"
+                (click)="resetForm(frmSignup)">Limpiar</button>
+              <button class="btn waves-effect waves-light" (click)="addUser(frmSignup)">Registrar</button>
+            </div>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   </div>
 </div>

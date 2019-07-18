@@ -28,33 +28,24 @@ export class SignupComponent implements OnInit {
     if (form.valid) {
       if (this.validateEmail(form.value.email)) {
         if (form.value.password == this.valPassword) {
-          this.userService.getUserByUsername(form.value.username).subscribe(res => {
-            this.userService.users = res as User[];
-            console.log(this.userService.users);
-            if (this.userService.users.length != 1) {
-              this.userService.getUserByEmail(form.value.email).subscribe(res => {
-                this.userService.users = res as User[];
-                if (this.userService.users.length != 1) {
-                  this.userService.addUser(form.value).subscribe(res => {
-                    console.log(res);
-                  });
-                  toast("Guardado", 4000);
-                  this.resetForm(form);
-                  setTimeout(() => {
-                    this.router.navigate(['signin']);
-                  }, 2000);
-                }
-                else {
-                  this.userService.selectedUser.email = '';
-                  toast("Este correo ya esta siendo usado", 4000);
-                }
-              });
-            }
-            else {
-              this.userService.selectedUser.username = '';
-              toast("Debe usar un nombre de usuario disponible", 4000);
+          this.userService.addUser(form.value).subscribe(res => {
+            if (res) {
+              console.log(res.status);
+              toast(res.message, 4000);
+              
+              if (res.user){
+                this.resetForm(form);
+                setTimeout(() => {
+                  this.router.navigate(['login']);
+                }, 2000);
+              }
+              else {
+                //TODO limpiar los datos que generaron el error
+                console.log("error");
+              }
             }
           });
+
         }
         else {
           this.valPassword = '';

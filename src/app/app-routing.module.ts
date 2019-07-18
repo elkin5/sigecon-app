@@ -2,14 +2,17 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 // Imports para las rutas
-import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { AuthGuard } from './helpers/auth.guard';
 
 
 const routes: Routes = [
-  { path: 'signin', component: SigninComponent },
+  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: '**', pathMatch: 'full', redirectTo: 'signup' }
+  { path: '**', pathMatch: 'full', redirectTo: '' }
 ];
 
 // se usa use hash para utilizar # en los llamados y que no se cargue la pagina completamente

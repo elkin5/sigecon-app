@@ -3,6 +3,9 @@ import { Injectable } from '@angular/core';
 //libreria para solicitudes api rest
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user';
+import { Observable } from 'rxjs';
+
+import { ResponseI } from '../models/response-i';
 
 @Injectable({
   providedIn: 'root'
@@ -30,8 +33,8 @@ export class UserService {
     return this.http.get(this.API_URL);
   }
 
-  addUser(user: User) {
-    return this.http.post(this.API_URL, user);
+  addUser(user: User): Observable<ResponseI> {
+    return this.http.post<ResponseI>(this.API_URL, user);
   }
 
   updateUser(user: User) {
