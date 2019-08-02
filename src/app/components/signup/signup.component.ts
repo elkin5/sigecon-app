@@ -18,34 +18,34 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
 
-  private valPassword: string
-  constructor(private userService: UserService, private router: Router) { }
+  private valPassword: string;
+  loading = false;
+  constructor(
+    private userService: UserService, private router: Router
+  ) { }
 
   ngOnInit() {
   };
 
   public addUser(form: NgForm) {
     if (form.valid) {
+      this.loading = true;
       if (this.validateEmail(form.value.email)) {
         if (form.value.password == this.valPassword) {
-          this.userService.addUser(form.value).subscribe(res => {
-            if (res) {
-              console.log(res.status);
-              toast(res.message, 4000);
-              
-              if (res.user){
-                this.resetForm(form);
-                setTimeout(() => {
-                  this.router.navigate(['login']);
-                }, 2000);
-              }
-              else {
-                //TODO limpiar los datos que generaron el error
-                console.log("error");
-              }
-            }
-          });
+          this.userService.addUser(form.value).subscribe(
+            res => {
 
+              this.resetForm(form);
+              setTimeout(() => {
+                this.router.navigate(['login']);
+              }, 2000);
+
+              toast(res.message, 4000);
+            },
+            error => {
+              toast(error, 5000);
+              this.loading = false;
+            });
         }
         else {
           this.valPassword = '';

@@ -21,14 +21,6 @@ export class UserService {
     this.selectedUser = new User();
   }
 
-  getUserByUsername(username: string) {
-    return this.http.get(this.API_URL + `/username/${username}`);
-  }
-
-  getUserByEmail(email: string) {
-    return this.http.get(this.API_URL + `/email/${email}`);
-  }
-
   getUser() {
     return this.http.get(this.API_URL);
   }

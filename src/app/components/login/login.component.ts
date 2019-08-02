@@ -7,6 +7,9 @@ import { first } from 'rxjs/operators';
 
 import { AuthService } from '../../services/auth.service';
 
+//Constante para usar algunos elementos de materialize en toda la app
+import { toast } from 'angular2-materialize';
+
 declare var $: any;
 
 @Component({
@@ -19,7 +22,6 @@ export class LoginComponent implements OnInit {
   loading = false;
   submitted = false;
   returnUrl: string;
-  error: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -27,7 +29,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private authenticationService: AuthService
   ) {
-    // redirect to home if already logged in
+    // redirigir al home si ya se encuentra logueado
     if (this.authenticationService.currentUserValue) {
       this.router.navigate(['/']);
     }
@@ -39,17 +41,17 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.required]
     });
 
-    // get return url from route parameters or default to '/'
+    // obtener ruta de return del route parameters or por defecto '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
-  // convenience getter for easy access to form fields
+  // getters y setters para acceder mas facil al los campos
   get f() { return this.loginForm.controls; }
 
   onSubmit() {
     this.submitted = true;
 
-    // stop here if form is invalid
+    // Se detiene si el form no es valido
     if (this.loginForm.invalid) {
       return;
     }
@@ -61,16 +63,9 @@ export class LoginComponent implements OnInit {
         () => {
           this.router.navigate([this.returnUrl]);
         },
-        error => {
-          this.error = error;
+        error => { 
+          toast(error, 5000);
           this.loading = false;
         });
   }
-
-  closeAlert(): void {
-    $("#alert_box").fadeOut("slow", function () {
-    });
-    this.error = null;
-  }
-
 }

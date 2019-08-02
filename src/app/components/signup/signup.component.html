@@ -48,7 +48,22 @@
             <div class="input-field">
               <button class="btn waves-effect waves-ligth" style="margin-right: 3%"
                 (click)="resetForm(frmSignup)">Limpiar</button>
-              <button class="btn waves-effect waves-light" (click)="addUser(frmSignup)">Registrar</button>
+
+              <button [disabled]="loading" class="btn waves-effect waves-light" (click)="addUser(frmSignup)">
+                <div *ngIf="loading" class="preloader-wrapper active">
+                  <div class="spinner-layer spinner-red-only">
+                    <div class="circle-clipper left">
+                      <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                      <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                      <div class="circle"></div>
+                    </div>
+                  </div>
+                </div>
+                Registrar</button>
             </div>
           </div>
         </form>
