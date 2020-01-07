@@ -1,0 +1,4 @@
+el router-oulet da la informacion consignada en las rutas por lo tanto si se desea independizar
+los modulos se debe crear un nuevo routing que maneje el oulet nuevo 
+igualmente se crea un nuevo modulo
+se importa donde se desea usar

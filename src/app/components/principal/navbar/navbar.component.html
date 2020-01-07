@@ -1,0 +1,28 @@
+<!-- nav -->
+<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
+  <div class="navbar-nav">
+    <a class="nav-item nav-link" routerLink="/">Home</a>
+    <a class="nav-item nav-link" (click)="logout()">Logout</a>
+  </div>
+</nav>
+
+<nav class="nav-extended">
+  <div class="nav-wrapper">
+    <a href="#" class="brand-logo">Sigecon App</a>
+    <!-- menu para pantallas pequenas o moviles -->
+    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+    <!-- Componentes del menu para web -->
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="#">Acerca de</a></li>
+      <li *ngIf="currentUser"><a href="#">Salir</a></li>
+      <li *ngIf="currentUser == null"><a href="#signup">Registrarse</a></li>
+      <li *ngIf="currentUser == null"><a href="#login">Iniciar Sesion</a></li>
+    </ul>
+    <!-- Componentes del menu para moviles -->
+    <ul class="side-nav" id="mobile-demo">
+      <li><a href="#">Acerca de</a></li>
+      <li><a href="#signup">Registrarse</a></li>
+      <li><a href="#login">Iniciar Sesion</a></li>
+    </ul>
+  </div>
+</nav>

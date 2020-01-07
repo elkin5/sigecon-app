@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-//Injeccion servicio de traduccion
-import { TranslateService } from '@ngx-translate/core';
+
 
 import { Router } from '@angular/router';
 
@@ -15,11 +14,8 @@ export class AppComponent {
   title = 'sigecon-app';
   currentUser: any;
 
-  //Se agrega la variable a injectar para la traduccion
-  constructor(private translate: TranslateService, private router: Router,
+  constructor(private router: Router,
     private authenticationService: AuthService) {
-    //Se define el valor por defecto para 
-    translate.setDefaultLang('es');
     this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
   }
 
@@ -32,10 +28,5 @@ export class AppComponent {
     this.authenticationService.logout();
     this.router.navigate(['/login']);
   }
-
-  //seleccion para idioma
-  switchLanguage(language: string) {
-    this.translate.use(language);
-  }
-
+  
 }
